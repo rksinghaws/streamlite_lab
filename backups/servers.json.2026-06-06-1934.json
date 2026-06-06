@@ -1,0 +1,9 @@
+[
+  {
+    "name": "ec2-34-204-72-11",
+    "instance_id": "",
+    "host": "34.204.72.11",
+    "ssh_user": "ec2-user",
+    "ssh_key": "/home/raj/Downloads/awskey.pem"
+  }
+]
