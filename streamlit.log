@@ -1,0 +1,722 @@
+nohup: ignoring input
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.29.214:8501
+
+2026-06-06 20:06:44.785 Script compilation error
+Traceback (most recent call last):
+  File "/home/raj/streamlit/.venv/lib64/python3.9/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 571, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "/home/raj/streamlit/.venv/lib64/python3.9/site-packages/streamlit/runtime/scriptrunner/script_cache.py", line 72, in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "/home/raj/streamlit/.venv/lib64/python3.9/site-packages/streamlit/runtime/scriptrunner/magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "/usr/lib64/python3.9/ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "/home/raj/streamlit/app.py", line 423
+    		if st.session_state.get('last_ssh_output') or st.session_state.get('last_ssh_stderr'):
+    	^
+IndentationError: unexpected unindent
+2026-06-06 20:06:44.834 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-06-06 20:07:10.014 Script compilation error
+Traceback (most recent call last):
+  File "/home/raj/streamlit/.venv/lib64/python3.9/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 571, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "/home/raj/streamlit/.venv/lib64/python3.9/site-packages/streamlit/runtime/scriptrunner/script_cache.py", line 72, in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "/home/raj/streamlit/.venv/lib64/python3.9/site-packages/streamlit/runtime/scriptrunner/magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "/usr/lib64/python3.9/ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "/home/raj/streamlit/app.py", line 423
+    		if st.session_state.get('last_ssh_output') or st.session_state.get('last_ssh_stderr'):
+    	^
+IndentationError: unexpected unindent
+2026-06-06 20:07:10.022 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+  Stopping...
+12:30,877 INFO SSH Stdout:
+$ uptime
+ 14:42:28 up  1:13,  0 users,  load average: 0.00, 0.00, 0.00
+
+$ df -h
+Filesystem        Size  Used Avail Use% Mounted on
+devtmpfs          4.0M     0  4.0M   0% /dev
+tmpfs             459M     0  459M   0% /dev/shm
+tmpfs             184M  440K  183M   1% /run
+/dev/nvme0n1p1    8.0G  1.6G  6.4G  20% /
+tmpfs             459M     0  459M   0% /tmp
+/dev/nvme0n1p128   10M  1.3M  8.7M  13% /boot/efi
+tmpfs              92M     0   92M   0% /run/user/1000
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         132         524           0         259         645
+Swap:              0           0           0
+
+2026-06-06 20:23:58,265 INFO SSH Stdout:
+$ ping -c 4 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=117 time=1.39 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=117 time=1.33 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=117 time=1.34 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=117 time=1.34 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 1.332/1.352/1.392/0.023 ms
+
+$ ip -4 addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: ens5: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP group default qlen 1000
+    altname enp0s5
+    altname eni-04af6fe09d69f87fe
+    altname device-number-0.0
+    inet 172.31.37.79/20 metric 512 brd 172.31.47.255 scope global dynamic ens5
+       valid_lft 2126sec preferred_lft 2126sec
+
+$ ss -tunlp | head -n 200
+Netid State  Recv-Q Send-Q                  Local Address:Port Peer Address:PortProcess
+udp   UNCONN 0      0                           127.0.0.1:323       0.0.0.0:*          
+udp   UNCONN 0      0                   172.31.37.79%ens5:68        0.0.0.0:*          
+udp   UNCONN 0      0                               [::1]:323          [::]:*          
+udp   UNCONN 0      0      [fe80::c1d:e9ff:fecd:b1f]%ens5:546          [::]:*          
+tcp   LISTEN 0      128                           0.0.0.0:22        0.0.0.0:*          
+tcp   LISTEN 0      128                              [::]:22           [::]:*          
+
+2026-06-06 20:24:52,693 INFO SSH Stdout:
+$ uptime
+ 14:54:50 up  1:25,  0 users,  load average: 0.00, 0.00, 0.00
+
+$ df -h
+Filesystem        Size  Used Avail Use% Mounted on
+devtmpfs          4.0M     0  4.0M   0% /dev
+tmpfs             459M     0  459M   0% /dev/shm
+tmpfs             184M  440K  183M   1% /run
+/dev/nvme0n1p1    8.0G  1.6G  6.4G  20% /
+tmpfs             459M     0  459M   0% /tmp
+/dev/nvme0n1p128   10M  1.3M  8.7M  13% /boot/efi
+tmpfs              92M     0   92M   0% /run/user/1000
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         136         520           0         260         641
+Swap:              0           0           0
+
+2026-06-06 20:25:14,600 INFO SSH Stdout:
+$ uptime
+ 14:55:12 up  1:25,  0 users,  load average: 0.00, 0.00, 0.00
+
+$ df -h
+Filesystem        Size  Used Avail Use% Mounted on
+devtmpfs          4.0M     0  4.0M   0% /dev
+tmpfs             459M     0  459M   0% /dev/shm
+tmpfs             184M  440K  183M   1% /run
+/dev/nvme0n1p1    8.0G  1.6G  6.4G  20% /
+tmpfs             459M     0  459M   0% /tmp
+/dev/nvme0n1p128   10M  1.3M  8.7M  13% /boot/efi
+tmpfs              92M     0   92M   0% /run/user/1000
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         136         520           0         260         641
+Swap:              0           0           0
+
+2026-06-06 20:25:41,122 INFO SSH Stdout:
+$ top -b -n1 | head -n 20
+top - 14:55:38 up  1:26,  0 users,  load average: 0.00, 0.00, 0.00
+Tasks: 104 total,   1 running, 103 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  3.2 sy,  0.0 ni, 96.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    519.5 free,    136.7 used,    260.7 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    641.1 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:01.73 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.08 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.09 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         136         519           0         260         641
+Swap:              0           0           0
+
+$ df -h
+Filesystem        Size  Used Avail Use% Mounted on
+devtmpfs          4.0M     0  4.0M   0% /dev
+tmpfs             459M     0  459M   0% /dev/shm
+tmpfs             184M  440K  183M   1% /run
+/dev/nvme0n1p1    8.0G  1.6G  6.4G  20% /
+tmpfs             459M     0  459M   0% /tmp
+/dev/nvme0n1p128   10M  1.3M  8.7M  13% /boot/efi
+tmpfs              92M     0   92M   0% /run/user/1000
+
+2026-06-06 20:37:32,226 INFO SSH Stdout:
+$ top -b -n1 | head -n 20
+top - 15:07:30 up  1:38,  0 users,  load average: 0.00, 0.00, 0.00
+Tasks: 110 total,   2 running, 108 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  6.5 us,  0.0 sy,  0.0 ni, 93.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    510.2 free,    145.5 used,    261.1 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    632.2 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   6926 ec2-user  20   0  223924   3184   2712 R   6.2   0.3   0:00.01 top
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:01.84 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.08 ksoftir+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         145         510           0         261         632
+Swap:              0           0           0
+
+$ df -h
+Filesystem        Size  Used Avail Use% Mounted on
+devtmpfs          4.0M     0  4.0M   0% /dev
+tmpfs             459M     0  459M   0% /dev/shm
+tmpfs             184M  464K  183M   1% /run
+/dev/nvme0n1p1    8.0G  1.6G  6.4G  20% /
+tmpfs             459M     0  459M   0% /tmp
+/dev/nvme0n1p128   10M  1.3M  8.7M  13% /boot/efi
+tmpfs              92M     0   92M   0% /run/user/1000
+
+2026-06-06 20:50:01,595 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+   7424 sshd             1.0
+   7426 sshd             1.0
+      1 systemd          0.0
+      2 kthreadd         0.0
+      3 rcu_gp           0.0
+
+$ top -b -n1 | head -n 20
+top - 15:20:00 up  1:50,  0 users,  load average: 0.00, 0.00, 0.00
+Tasks: 103 total,   1 running, 102 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.1 us,  0.0 sy,  0.0 ni, 96.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    520.3 free,    135.0 used,    261.5 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    642.8 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:01.92 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.09 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.11 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         135         519           0         261         642
+Swap:              0           0           0
+
+2026-06-06 20:50:06,147 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+   7430 systemd          1.1
+   7561 sshd             0.3
+      1 systemd          0.0
+      2 kthreadd         0.0
+      3 rcu_gp           0.0
+
+$ top -b -n1 | head -n 20
+top - 15:20:05 up  1:50,  0 users,  load average: 0.00, 0.00, 0.00
+Tasks: 102 total,   1 running, 101 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    519.3 free,    136.0 used,    261.5 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    641.8 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:01.95 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.09 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.12 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         136         518           0         261         641
+Swap:              0           0           0
+
+2026-06-06 20:50:10,613 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+   7430 systemd          0.7
+   7623 sshd             0.5
+      1 systemd          0.0
+      2 kthreadd         0.0
+      3 rcu_gp           0.0
+
+$ top -b -n1 | head -n 20
+top - 15:20:09 up  1:50,  0 users,  load average: 0.00, 0.00, 0.00
+Tasks: 102 total,   1 running, 101 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    518.6 free,    136.7 used,    261.5 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    641.1 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:01.95 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.09 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.12 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         136         518           0         261         641
+Swap:              0           0           0
+
+2026-06-06 20:50:36,204 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+   7717 systemd          3.5
+   7686 sshd             0.3
+      1 systemd          0.0
+      2 kthreadd         0.0
+      3 rcu_gp           0.0
+
+$ top -b -n1 | head -n 20
+top - 15:20:35 up  1:51,  0 users,  load average: 0.00, 0.00, 0.00
+Tasks: 105 total,   1 running, 104 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    514.6 free,    140.5 used,    261.7 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    637.3 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:02.01 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.10 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.12 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         140         514           0         261         637
+Swap:              0           0           0
+
+2026-06-06 20:50:41,847 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+   7717 systemd          0.8
+   7870 sshd             0.3
+      1 systemd          0.0
+      2 kthreadd         0.0
+      3 rcu_gp           0.0
+
+$ top -b -n1 | head -n 20
+top - 15:20:40 up  1:51,  0 users,  load average: 0.00, 0.00, 0.00
+Tasks: 103 total,   1 running, 102 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    514.6 free,    140.5 used,    261.7 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    637.3 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:02.02 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.10 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.12 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         140         514           0         261         637
+Swap:              0           0           0
+
+2026-06-06 20:50:47,270 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+   7717 systemd          0.5
+      1 systemd          0.0
+      2 kthreadd         0.0
+      3 rcu_gp           0.0
+      4 rcu_par_gp       0.0
+
+$ top -b -n1 | head -n 20
+top - 15:20:46 up  1:51,  0 users,  load average: 0.00, 0.00, 0.00
+Tasks: 103 total,   1 running, 102 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    514.6 free,    140.4 used,    261.7 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    637.3 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:02.03 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.10 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.12 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         140         514           0         261         637
+Swap:              0           0           0
+
+2026-06-06 20:59:04,354 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+   8204 systemd          6.0
+   8199 sshd             0.6
+   8197 sshd             0.3
+      1 systemd          0.0
+      2 kthreadd         0.0
+
+$ top -b -n1 | head -n 20
+top - 15:29:02 up  1:59,  0 users,  load average: 0.16, 0.03, 0.01
+Tasks: 103 total,   1 running, 102 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    514.3 free,    140.6 used,    261.9 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    637.2 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:02.09 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.10 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.13 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         140         514           0         261         637
+Swap:              0           0           0
+
+2026-06-06 21:00:15,389 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+   8385 sshd             0.5
+      1 systemd          0.0
+      2 kthreadd         0.0
+      3 rcu_gp           0.0
+      4 rcu_par_gp       0.0
+
+$ top -b -n1 | head -n 20
+top - 15:30:13 up  2:00,  0 users,  load average: 0.05, 0.02, 0.00
+Tasks: 102 total,   1 running, 101 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.1 us,  0.0 sy,  0.0 ni, 96.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    514.3 free,    140.5 used,    262.0 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    637.3 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:02.15 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.10 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.13 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         140         514           0         261         637
+Swap:              0           0           0
+
+2026-06-06 21:01:53,685 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+   8510 systemd          6.0
+   8506 sshd             0.3
+      1 systemd          0.0
+      2 kthreadd         0.0
+      3 rcu_gp           0.0
+
+$ top -b -n1 | head -n 20
+top - 15:31:52 up  2:02,  0 users,  load average: 0.01, 0.01, 0.00
+Tasks: 102 total,   1 running, 101 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  3.1 sy,  0.0 ni, 96.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    513.5 free,    141.2 used,    262.0 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    636.6 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:02.19 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.11 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.13 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         141         513           0         262         636
+Swap:              0           0           0
+
+2026-06-06 21:02:45,760 INFO SSH Stdout:
+$ uptime
+ 15:32:44 up  2:03,  0 users,  load average: 0.00, 0.01, 0.00
+
+$ df -h
+Filesystem        Size  Used Avail Use% Mounted on
+devtmpfs          4.0M     0  4.0M   0% /dev
+tmpfs             459M     0  459M   0% /dev/shm
+tmpfs             184M  440K  183M   1% /run
+/dev/nvme0n1p1    8.0G  1.6G  6.4G  20% /
+tmpfs             459M     0  459M   0% /tmp
+/dev/nvme0n1p128   10M  1.3M  8.7M  13% /boot/efi
+tmpfs              92M     0   92M   0% /run/user/1000
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         141         512           0         262         636
+Swap:              0           0           0
+
+2026-06-06 21:03:03,502 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+      1 systemd          0.0
+      2 kthreadd         0.0
+      3 rcu_gp           0.0
+      4 rcu_par_gp       0.0
+      5 slub_flushwq     0.0
+
+$ top -b -n1 | head -n 20
+top - 15:33:02 up  2:03,  0 users,  load average: 0.07, 0.02, 0.00
+Tasks: 103 total,   1 running, 102 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    512.5 free,    142.1 used,    262.2 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    635.7 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:02.27 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.11 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.14 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         142         512           0         262         635
+Swap:              0           0           0
+
+2026-06-06 21:03:57,428 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+      1 systemd          0.0
+      2 kthreadd         0.0
+      3 rcu_gp           0.0
+      4 rcu_par_gp       0.0
+      5 slub_flushwq     0.0
+
+$ top -b -n1 | head -n 20
+top - 15:33:56 up  2:04,  0 users,  load average: 0.03, 0.02, 0.00
+Tasks: 103 total,   1 running, 102 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  3.1 sy,  0.0 ni, 96.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    511.9 free,    142.6 used,    262.3 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    635.2 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:02.32 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.11 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.14 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         142         511           0         262         635
+Swap:              0           0           0
+
+2026-06-06 21:18:45,678 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+   9433 systemd          6.0
+   9399 sshd             0.5
+      1 systemd          0.0
+      2 kthreadd         0.0
+      3 rcu_gp           0.0
+
+$ top -b -n1 | head -n 20
+top - 15:48:44 up  2:19,  0 users,  load average: 0.00, 0.00, 0.00
+Tasks: 102 total,   1 running, 101 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  3.1 sy,  0.0 ni, 96.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    511.7 free,    142.4 used,    262.6 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    635.4 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:02.49 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.12 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.15 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         142         511           0         262         635
+Swap:              0           0           0
+
+2026-06-06 21:40:54,959 INFO SSH Stdout:
+$ ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    PID COMMAND         %CPU
+  10213 systemd          6.0
+  10207 sshd             0.6
+  10209 sshd             0.3
+      1 systemd          0.0
+      2 kthreadd         0.0
+
+$ top -b -n1 | head -n 20
+top - 16:10:54 up  2:41,  0 users,  load average: 0.00, 0.00, 0.00
+Tasks: 103 total,   1 running, 102 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :    916.8 total,    509.3 free,    144.0 used,    263.5 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    633.8 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  173412  17804  11104 S   0.0   1.9   0:02.65 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_fl+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tas+
+     14 root      20   0       0      0      0 S   0.0   0.0   0:00.13 ksoftir+
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.17 rcu_pre+
+
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:             916         144         509           0         263         633
+Swap:              0           0           0
+
+2026-06-06 21:41:23,541 INFO SSH Stdout:
+$ ping -c 4 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=117 time=1.38 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=117 time=1.33 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=117 time=1.33 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=117 time=1.35 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 1.330/1.348/1.381/0.020 ms
+
+$ ip -4 addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: ens5: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP group default qlen 1000
+    altname enp0s5
+    altname eni-04af6fe09d69f87fe
+    altname device-number-0.0
+    inet 172.31.37.79/20 metric 512 brd 172.31.47.255 scope global dynamic ens5
+       valid_lft 2882sec preferred_lft 2882sec
+
+$ ss -tunlp | head -n 200
+Netid State  Recv-Q Send-Q                  Local Address:Port Peer Address:PortProcess
+udp   UNCONN 0      0                           127.0.0.1:323       0.0.0.0:*          
+udp   UNCONN 0      0                   172.31.37.79%ens5:68        0.0.0.0:*          
+udp   UNCONN 0      0                               [::1]:323          [::]:*          
+udp   UNCONN 0      0      [fe80::c1d:e9ff:fecd:b1f]%ens5:546          [::]:*          
+tcp   LISTEN 0      128                           0.0.0.0:22        0.0.0.0:*          
+tcp   LISTEN 0      128                              [::]:22           [::]:*          
+
